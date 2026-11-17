@@ -104,6 +104,23 @@ print('WORKER_OK', act('observe', x=[0]*740)['reading'])
     return "worker-qualified"
 
 
+def guided_request(history):
+    if history:
+        last_stdout = history[-1]["result"]["stdout"].strip()
+        context = "The previous console output was " + last_stdout
+        choices = ["print(act('transfer')['phase'], act('commission')['phase'])",
+                   "print(act('transfer')['phase']); print(act('commission')['phase'])"]
+    else:
+        context = "The instrument has 740 binary inputs."
+        choices = [f"print(act('observe', x=[{bit}] * 740)['reading'])" for bit in (0, 1)]
+    schema = {"type": "object", "properties": {"program": {"type": "string", "enum": choices}},
+              "required": ["program"], "additionalProperties": False}
+    prompt = (context + "\nSelect one supplied Python program for this installation check. "
+              + "Return it in the program field.\n" + json.dumps(choices))
+    return prompt, {"type": "json_schema", "json_schema": {"name": "guided_choice", "strict": True,
+                                                          "schema": schema}}, choices
+
+
 def evaluate(console, args, run):
     history = []
     for turn in range(1, console.turn_limit + 1):
@@ -115,31 +132,16 @@ def evaluate(console, args, run):
         prompt = console.prompt(history)
         if args.turns != resources.TURNS or args.seconds != resources.WALL_SECONDS:
             prompt += f"\nOperator development cap: {args.turns} turns and {args.seconds} wall seconds."
+        response_format = None
         if args.command == "exercise":
-            if console.w.shots == 0:
-                program = "print(act('observe', x=[0] * 740)['reading'])"
-            else:
-                program = "print(act('transfer')['phase'], act('commission')['phase'])"
-            journal = run / "records/physical.jsonl"
-            prior_readout = ""
-            if console.w.shots and journal.is_file():
-                with journal.open() as stream:
-                    for line in stream:
-                        reading = json.loads(line)["result"].get("reading")
-                        if reading:
-                            prior_readout = "Last measured bits: " + "".join(map(str, reading)) + ".\n"
-                            break
-            prompt = ("Operate an existing Python console. The function act is already defined. "
-                      "This is a guided installation check on public data. Send the following short "
-                      "Python program to the console by returning it in a fenced Python block. "
-                      "The real result will be returned to you.\n"
-                      + prior_readout
-                      + "Your complete next response:\n```python\n" + program + "\n```")
-        write(run / "records" / f"request_{turn:06}.json", {
-            "model": args.model, "prompt": prompt, "remaining": remaining,
-            "max_tokens": min(tokens, args.reply_tokens)})
+            prompt, response_format, choices = guided_request(history)
+        request = {"model": args.model, "prompt": prompt, "remaining": remaining,
+                   "max_tokens": min(tokens, args.reply_tokens)}
+        if response_format is not None:
+            request["response_format"] = response_format
+        write(run / "records" / f"request_{turn:06}.json", request)
         with time_left(seconds):
-            raw = completion(args.base_url, args.model, prompt, min(tokens, args.reply_tokens), seconds)
+            raw = completion(args.base_url, args.model, prompt, request["max_tokens"], seconds, response_format)
         write(run / "records" / f"response_{turn:06}.json", raw)
         message, used = parse_reply(raw, args.model)
         console.turn = turn
@@ -148,7 +150,13 @@ def evaluate(console, args, run):
             return "budget-exhausted"
         if message.strip() == "FINISH":
             return "participant-finished"
-        blocks = FENCE.findall(message)
+        if args.command == "exercise":
+            selected = json.loads(message)["program"]
+            if selected not in choices:
+                raise ValueError("Returned program is outside the guided exercise.")
+            blocks = [selected]
+        else:
+            blocks = FENCE.findall(message)
         if len(blocks) == 1:
             result = console.run(blocks[0], turn)
             visible = {"stdout": result["stdout"], "exit_code": result["exit_code"], "ledger": console.state()}

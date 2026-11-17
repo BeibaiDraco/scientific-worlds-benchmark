@@ -11,7 +11,7 @@ class NoRedirect(urllib.request.HTTPRedirectHandler):
         return None
 
 
-def completion(base, model, prompt, limit, timeout):
+def completion(base, model, prompt, limit, timeout, response_format=None):
     url = urllib.parse.urlsplit(base)
     loopback = url.hostname in {"localhost", "127.0.0.1", "::1"}
     if (url.scheme != "https" and not (url.scheme == "http" and loopback)) or not url.hostname:
@@ -23,6 +23,8 @@ def completion(base, model, prompt, limit, timeout):
         headers["Authorization"] = "Bearer " + key
     payload = {"model": model, "messages": [{"role": "user", "content": prompt}],
                "max_tokens": limit, "stream": False, "temperature": 0}
+    if response_format is not None:
+        payload['response_format'] = response_format
     request = urllib.request.Request(base.rstrip("/") + "/chat/completions",
                                      json.dumps(payload).encode(), headers)
     with urllib.request.build_opener(NoRedirect).open(request, timeout=timeout) as response:

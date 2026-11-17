@@ -10,9 +10,7 @@
 
 | Model and session budget | **M · microscopic law** | N0 · operating rules | F · structural family |
 |---|---:|---:|---:|
-<!-- score-row -->
 | Astra 6.0 Max · 10–12 active hours | **8% (2/25)** | 0% (0/11) | 100% (11/11) |
-<!-- end-score-row -->
 
 The unit is a scored session. The row pools development, registered evaluation and same-world replication. Both M successes occurred on the same physical world. One used material wording and the other neural wording. Three early M and three early N0 sessions had a code-extraction defect. [Full counts and historical protocol](docs/method.md) · [47 session records](evidence/sessions.json) · [Scorecard JSON](evidence/scorecard.json).
 

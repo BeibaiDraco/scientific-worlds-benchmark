@@ -22,7 +22,7 @@ def completion(base, model, prompt, limit, timeout):
     if key := os.environ.get("SW_API_KEY"):
         headers["Authorization"] = "Bearer " + key
     payload = {"model": model, "messages": [{"role": "user", "content": prompt}],
-               "max_tokens": limit, "stream": False}
+               "max_tokens": limit, "stream": False, "temperature": 0}
     request = urllib.request.Request(base.rstrip("/") + "/chat/completions",
                                      json.dumps(payload).encode(), headers)
     with urllib.request.build_opener(NoRedirect).open(request, timeout=timeout) as response:

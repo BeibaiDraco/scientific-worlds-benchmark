@@ -120,9 +120,13 @@ def evaluate(console, args, run):
                 program = "print(act('observe', x=[0] * 740)['reading'])"
             else:
                 program = "print(act('transfer')['phase'])\nprint(act('commission')['phase'])"
-            prompt += ("\nThis is a public integration check. The operator supplies the action sequence. "
-                       "Return the following Python block exactly, including the code fences.\n"
-                       + "```python\n" + program + "\n```")
+            previous = history[-1]["result"] if history else None
+            prompt = ("Operate an existing Python console. The function act is already defined. "
+                      "This is a guided installation check on public data. Send the following short "
+                      "Python program to the console by returning it in a fenced Python block. "
+                      "The real result will be returned to you.\n"
+                      + "Previous console result: " + json.dumps(previous) + "\n"
+                      + "Your complete next response:\n```python\n" + program + "\n```")
         write(run / "records" / f"request_{turn:06}.json", {
             "model": args.model, "prompt": prompt, "remaining": remaining,
             "max_tokens": min(tokens, args.reply_tokens)})
@@ -182,7 +186,7 @@ def main():
     seed = args.seed if args.seed is not None else secrets.randbits(128)
     config = {"schema": 1, "track": {"qualify": "worker-check", "exercise": "guided-integration", "run": "self-reported"}[args.command],
               "family": args.family, "condition": args.condition, "seed": seed,
-              "model": getattr(args, "model", None), "turn_budget": args.turns,
+              "model": getattr(args, "model", None), "temperature": 0 if not testing else None, "turn_budget": args.turns,
               "wall_budget_seconds": args.seconds, "reply_token_limit": getattr(args, "reply_tokens", None),
               "formal_score_eligible": False}
     write(run / "config.json", config)

@@ -14,7 +14,7 @@ python3.11 -m venv /tmp/sw-python
 
 ## Test your model
 
-Start a local server that implements the chat completions endpoint, or use an HTTPS provider with that API. Use the exact model ID the endpoint returns. The adapter accepts a single user message, max_tokens and a non-streaming response with the model name, assistant text and integer usage.completion_tokens. Set SW_API_KEY only for endpoints that require authentication, in the operator's environment. A local Ollama example follows.
+Start a local server that implements the chat completions endpoint, or use an HTTPS provider with that API. Use the exact model ID the endpoint returns. The adapter accepts a single user message, temperature zero, max_tokens and a non-streaming response with the model name, assistant text and integer usage.completion_tokens. Set SW_API_KEY only for endpoints that require authentication, in the operator's environment. A local Ollama example follows.
 
 ```bash
 ollama pull qwen2.5-coder:1.5b
@@ -36,4 +36,4 @@ A full-budget run here is a self-hosted result. The November 2026 Astra series u
 
 ## External acceptance
 
-The Linux workflow first runs an ordinary two-turn session. It also runs a separate guided integration check: the model is asked to return code for a paid observation, then for transfer and commissioning with no devices installed. Acceptance requires at least two model-issued worker blocks, three physically replayed actions and the expected failed commissioning. This second run tests transport, isolation, billing and grading. It supplies no scientific model score. The workflow uses a local open-weight model and public seed 101. [Workflow and receipts](https://github.com/BeibaiDraco/scientific-worlds-benchmark/actions/workflows/linux.yml)
+The Linux workflow first runs an ordinary two-turn session. It also runs a separate guided integration check using short operator prompts and real returned observations: the model is asked to return code for a paid observation, then for transfer and commissioning with no devices installed. Acceptance requires at least two model-issued worker blocks, three physically replayed actions and the expected failed commissioning. This second run tests transport, isolation, billing and grading. It supplies no scientific model score. The workflow uses a local open-weight model and public seed 101. [Workflow and receipts](https://github.com/BeibaiDraco/scientific-worlds-benchmark/actions/workflows/linux.yml)

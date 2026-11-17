@@ -33,4 +33,13 @@ if __name__ == "__main__":
     result = scorecard()
     if args.check and result != json.loads((HERE / "scorecard.json").read_bytes()):
         raise SystemExit("Recalculated results differ from the published scorecard.")
+    if args.check:
+        cells = []
+        for arm in ("M", "N0", "F"):
+            cell = result["conditions"][arm]
+            label = f'{cell["percent"]:g}% ({cell["successes"]}/{cell["sessions"]})'
+            cells.append(f"**{label}**" if arm == "M" else label)
+        row = "| Astra 6.0 Max · 10–12 active hours | " + " | ".join(cells) + " |"
+        if row not in (HERE.parent / "README.md").read_text().splitlines():
+            raise SystemExit("README table differs from the session records.")
     print(json.dumps(result, indent=2))

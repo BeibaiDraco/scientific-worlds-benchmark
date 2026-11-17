@@ -1,0 +1,25 @@
+{
+  "files": {
+    "RESOURCE.json": "7b35995df416491a85049f62ef559903a1b15b9b882f019b0a4acc8f2731fa07",
+    "assets/FAMILY.md": "096b04736639577cd47ba5b2bb22114936111e2b483609a8e2fa27db2b33f16f",
+    "assets/MICRO_PRIOR.en.md": "95ceaeae6ea0d429875fe84692583b5664b61ec7147dd69e9ea4c8dd075faa1b",
+    "assets/RULES.md": "0389bee69f5a5f32e8f580333f927edd889be0c55a33df6844632f56ef5d215d",
+    "assets/task.json": "6e6173535d8ae8b2efd179bebbd3551bbd15bfd8affa085f1b49a4c16eb970d2",
+    "b720/__init__.py": "1df8d53aba539e667ec551426125665f9d045da050789b5e5071be3c3ea242cf",
+    "b720/certificate.py": "3e92876af2ff9c9f2860eea320d2b6568e07c71a26f8ee66b3cb962ea5f0a1f8",
+    "b720/circuits.py": "50363f8032405c37dfbe21da682ac7252f4b28eac4fef0ed1a176569d72e05ed",
+    "b720/console_start.py": "f7d79391bd33aae47a34255e078b3f7e7e5cf3ebef2ae8a75023a10499feb618",
+    "b720/context.py": "4f0ad605dace8d161b7bd9eb3de2b1e7d2500926344484623d9916cf0cbd2ec3",
+    "b720/family.py": "e9f30bb0deeb98632d77ffeb18aaddc6bac80225e2c021b508a98f18bd1b223d",
+    "b720/integrity.py": "598ea3a1443d3df26c022fac0997a75d99d0e9836de02030a93a8d76de328136",
+    "b720/legacy_parallel.py": "d22b4445d548a91c339ef5c0b79dbc57a7325c8e1faffa0a9ab2e2dfe9546855",
+    "b720/monomials.py": "a9cc853c9ea445193f89c1563d7aeee15ec030d571130886d0761d399c1cce01",
+    "b720/neural.py": "d0d5c88497993717c9b9a09c4d42e5ec572c7a6ece3faa7269dac1f0bff8ea4d",
+    "b720/parallel.py": "fa03e8057d4df00dbe2ce387d70851f5c56b055cb95d3d8caa8052bbe5115431",
+    "b720/prompts.py": "a2464bcaf6cc1d83d5529ad6d63846072b09110561e25438f8cefe5e5445a0ca",
+    "b720/reference.py": "eff2c398d5ef9fbdc347008c728f10292eac0292c5330aba9e06146f497db01a",
+    "b720/resources.py": "023854a7efd20002f7bb4ec76b08d57651c2f3e79b552006277cef623e1cb68a",
+    "b720/scoring.py": "cd6b350a57881698307e2deef9d69d06f140c75719ef42d01d9dd65539ead3d6",
+    "b720/world.py": "f9200a6880295f30847e5590140899f1da90042246c2db15be3c67edd1c2001c"
+  }
+}

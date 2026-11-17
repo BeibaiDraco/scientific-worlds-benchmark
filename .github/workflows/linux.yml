@@ -1,0 +1,58 @@
+name: Linux evaluation
+on:
+  push:
+    paths-ignore: ['**/*.md', 'CITATION.cff', 'LICENSE']
+  workflow_dispatch:
+    inputs:
+      live_model:
+        description: Run a bounded local open-weight model on the public specimen
+        type: boolean
+        default: true
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install isolated worker dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y bubblewrap libseccomp2
+          python -m venv /tmp/sw-python
+          /tmp/sw-python/bin/pip install -r host/requirements.txt
+      - name: Recalculate results and check the worker
+        run: |
+          python benchmark/runner/cli.py self-test
+          python evidence/report.py --check
+          python evidence/replay.py
+          python -m unittest discover -s tests -v
+          /tmp/sw-python/bin/python host/run.py qualify runs/probe
+          /tmp/sw-python/bin/python host/run.py replay runs/probe
+      - name: Serve a local open-weight model
+        if: github.event_name == 'workflow_dispatch' && inputs.live_model
+        run: |
+          docker run -d --name sw-model -p 127.0.0.1:11434:11434 -e OLLAMA_CONTEXT_LENGTH=8192 ollama/ollama:0.9.6
+          for i in {1..30}; do curl -fsS http://localhost:11434/api/version && break || sleep 2; done
+          docker exec sw-model ollama pull qwen2.5-coder:1.5b
+      - name: Run the public development episode and replay
+        if: github.event_name == 'workflow_dispatch' && inputs.live_model
+        run: |
+          /tmp/sw-python/bin/python host/run.py run runs/example --base-url http://localhost:11434/v1 --model qwen2.5-coder:1.5b --family B --condition M --seed 101 --turns 2 --seconds 600 --reply-tokens 512
+          /tmp/sw-python/bin/python host/run.py replay runs/example
+          docker exec sw-model ollama list
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: public-engineering-receipt
+          path: |
+            runs/*/config.json
+            runs/*/result.json
+            runs/*/records/linux_*/bootstrap.txt
+            runs/*/records/linux_*/RESULT.json

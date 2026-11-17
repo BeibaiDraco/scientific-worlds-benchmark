@@ -1,0 +1,60 @@
+{
+  "prompt_version": "synthetic-neural-v1",
+  "scope": "Exact prepared initial prompts; no sampled instance truth; new prompt version; model launch held",
+  "files": {
+    "neural-S-N0.txt": {
+      "sha256": "da70f076a9699d32b0f8c67cb7ed26aca15c22d4e5023943b947f766a28d7a75",
+      "bytes": 8898,
+      "family": "S",
+      "condition": "N0"
+    },
+    "neural-S-M.txt": {
+      "sha256": "2538272b37757d3cb8b71ee1e3878f0bd7d53b5263335af3ce331ee36543851b",
+      "bytes": 9403,
+      "family": "S",
+      "condition": "M"
+    },
+    "neural-S-F.txt": {
+      "sha256": "c2e7e091449961994a92194a6401ff252840678dbc06d4f304e491e03dddbd40",
+      "bytes": 11309,
+      "family": "S",
+      "condition": "F"
+    },
+    "neural-B-N0.txt": {
+      "sha256": "da70f076a9699d32b0f8c67cb7ed26aca15c22d4e5023943b947f766a28d7a75",
+      "bytes": 8898,
+      "family": "B",
+      "condition": "N0"
+    },
+    "neural-B-M.txt": {
+      "sha256": "2538272b37757d3cb8b71ee1e3878f0bd7d53b5263335af3ce331ee36543851b",
+      "bytes": 9403,
+      "family": "B",
+      "condition": "M"
+    },
+    "neural-B-F.txt": {
+      "sha256": "20317ad23547a3f216874cc2a8bc9db2e969c2cfeb805d9409268fe711e5f12d",
+      "bytes": 11347,
+      "family": "B",
+      "condition": "F"
+    },
+    "neural-C-N0.txt": {
+      "sha256": "da70f076a9699d32b0f8c67cb7ed26aca15c22d4e5023943b947f766a28d7a75",
+      "bytes": 8898,
+      "family": "C",
+      "condition": "N0"
+    },
+    "neural-C-M.txt": {
+      "sha256": "2538272b37757d3cb8b71ee1e3878f0bd7d53b5263335af3ce331ee36543851b",
+      "bytes": 9403,
+      "family": "C",
+      "condition": "M"
+    },
+    "neural-C-F.txt": {
+      "sha256": "9078a9523d9047f7eee336846648092779f14582c93417b08077c26bf98d3c51",
+      "bytes": 12824,
+      "family": "C",
+      "condition": "F"
+    }
+  }
+}

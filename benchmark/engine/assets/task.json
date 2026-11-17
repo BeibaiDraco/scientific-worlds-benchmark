@@ -1,0 +1,18 @@
+{
+  "shared": 720,
+  "outputs": 20,
+  "width": 740,
+  "capital": 5200,
+  "banks": 8,
+  "qualification_frames_per_device": 100000,
+  "costs": {
+    "observe_A": 1,
+    "observe_B": 4,
+    "device_base": 10,
+    "shared_drive": 1,
+    "gates_per_capital": 8,
+    "transfer": 0,
+    "state": 0,
+    "production_net_per_frame": 1
+  }
+}

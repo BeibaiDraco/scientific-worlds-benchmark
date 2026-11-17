@@ -1,0 +1,16 @@
+{
+  "version": "B720-neural-release-v1",
+  "provider": "astra",
+  "model": "gpt-6-astra",
+  "effort": "max",
+  "wall_seconds": 43200,
+  "worker_cpu_seconds": 4800,
+  "generated_tokens": 1200000,
+  "turns": 256,
+  "rss_bytes": 2147483648,
+  "file_bytes": 2147483648,
+  "history_bytes": 160000,
+  "notes_bytes": 24000,
+  "prompt_bytes": 220000,
+  "automatic_retries": 0
+}

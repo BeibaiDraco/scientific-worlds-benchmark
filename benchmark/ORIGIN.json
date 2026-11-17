@@ -1,0 +1,161 @@
+{
+  "schema": "portable-scientific-core-v1",
+  "scope": "Byte-identical scientific engine/resources/prompts only; native provider/worker enforcement is a separate adapter qualification.",
+  "files": [
+    {
+      "path": "benchmark/engine/b720/__init__.py",
+      "original_path": "b720_neural_release_2026-11-10/b720/__init__.py",
+      "sha256": "1df8d53aba539e667ec551426125665f9d045da050789b5e5071be3c3ea242cf"
+    },
+    {
+      "path": "benchmark/engine/b720/world.py",
+      "original_path": "b720_neural_release_2026-11-10/b720/world.py",
+      "sha256": "f9200a6880295f30847e5590140899f1da90042246c2db15be3c67edd1c2001c"
+    },
+    {
+      "path": "benchmark/engine/b720/circuits.py",
+      "original_path": "b720_neural_release_2026-11-10/b720/circuits.py",
+      "sha256": "50363f8032405c37dfbe21da682ac7252f4b28eac4fef0ed1a176569d72e05ed"
+    },
+    {
+      "path": "benchmark/engine/b720/parallel.py",
+      "original_path": "b720_neural_release_2026-11-10/b720/parallel.py",
+      "sha256": "fa03e8057d4df00dbe2ce387d70851f5c56b055cb95d3d8caa8052bbe5115431"
+    },
+    {
+      "path": "benchmark/engine/b720/legacy_parallel.py",
+      "original_path": "b720_neural_release_2026-11-10/b720/legacy_parallel.py",
+      "sha256": "d22b4445d548a91c339ef5c0b79dbc57a7325c8e1faffa0a9ab2e2dfe9546855"
+    },
+    {
+      "path": "benchmark/engine/b720/family.py",
+      "original_path": "b720_neural_release_2026-11-10/b720/family.py",
+      "sha256": "e9f30bb0deeb98632d77ffeb18aaddc6bac80225e2c021b508a98f18bd1b223d"
+    },
+    {
+      "path": "benchmark/engine/b720/reference.py",
+      "original_path": "b720_neural_release_2026-11-10/b720/reference.py",
+      "sha256": "eff2c398d5ef9fbdc347008c728f10292eac0292c5330aba9e06146f497db01a"
+    },
+    {
+      "path": "benchmark/engine/b720/certificate.py",
+      "original_path": "b720_neural_release_2026-11-10/b720/certificate.py",
+      "sha256": "3e92876af2ff9c9f2860eea320d2b6568e07c71a26f8ee66b3cb962ea5f0a1f8"
+    },
+    {
+      "path": "benchmark/engine/b720/monomials.py",
+      "original_path": "b720_neural_release_2026-11-10/b720/monomials.py",
+      "sha256": "a9cc853c9ea445193f89c1563d7aeee15ec030d571130886d0761d399c1cce01"
+    },
+    {
+      "path": "benchmark/engine/b720/prompts.py",
+      "original_path": "b720_neural_release_2026-11-10/b720/prompts.py",
+      "sha256": "a2464bcaf6cc1d83d5529ad6d63846072b09110561e25438f8cefe5e5445a0ca"
+    },
+    {
+      "path": "benchmark/engine/b720/resources.py",
+      "original_path": "b720_neural_release_2026-11-10/b720/resources.py",
+      "sha256": "023854a7efd20002f7bb4ec76b08d57651c2f3e79b552006277cef623e1cb68a"
+    },
+    {
+      "path": "benchmark/engine/b720/neural.py",
+      "original_path": "b720_neural_release_2026-11-10/b720/neural.py",
+      "sha256": "d0d5c88497993717c9b9a09c4d42e5ec572c7a6ece3faa7269dac1f0bff8ea4d"
+    },
+    {
+      "path": "benchmark/engine/b720/scoring.py",
+      "original_path": "b720_neural_release_2026-11-10/b720/scoring.py",
+      "sha256": "cd6b350a57881698307e2deef9d69d06f140c75719ef42d01d9dd65539ead3d6"
+    },
+    {
+      "path": "benchmark/engine/b720/integrity.py",
+      "original_path": "b720_neural_release_2026-11-10/b720/integrity.py",
+      "sha256": "598ea3a1443d3df26c022fac0997a75d99d0e9836de02030a93a8d76de328136"
+    },
+    {
+      "path": "benchmark/engine/RESOURCE.json",
+      "original_path": "b720_neural_release_2026-11-10/RESOURCE.json",
+      "sha256": "7b35995df416491a85049f62ef559903a1b15b9b882f019b0a4acc8f2731fa07"
+    },
+    {
+      "path": "benchmark/engine/assets/FAMILY.md",
+      "original_path": "b720_neural_release_2026-11-10/assets/FAMILY.md",
+      "sha256": "096b04736639577cd47ba5b2bb22114936111e2b483609a8e2fa27db2b33f16f"
+    },
+    {
+      "path": "benchmark/engine/assets/task.json",
+      "original_path": "b720_neural_release_2026-11-10/assets/task.json",
+      "sha256": "6e6173535d8ae8b2efd179bebbd3551bbd15bfd8affa085f1b49a4c16eb970d2"
+    },
+    {
+      "path": "benchmark/engine/assets/MICRO_PRIOR.en.md",
+      "original_path": "b720_neural_release_2026-11-10/assets/MICRO_PRIOR.en.md",
+      "sha256": "95ceaeae6ea0d429875fe84692583b5664b61ec7147dd69e9ea4c8dd075faa1b"
+    },
+    {
+      "path": "benchmark/engine/assets/RULES.md",
+      "original_path": "b720_neural_release_2026-11-10/assets/RULES.md",
+      "sha256": "0389bee69f5a5f32e8f580333f927edd889be0c55a33df6844632f56ef5d215d"
+    },
+    {
+      "path": "benchmark/prompts/neural-B-F.txt",
+      "original_path": "b720_neural_release_2026-11-10/prompts/neural-B-F.txt",
+      "sha256": "20317ad23547a3f216874cc2a8bc9db2e969c2cfeb805d9409268fe711e5f12d"
+    },
+    {
+      "path": "benchmark/prompts/neural-S-M.txt",
+      "original_path": "b720_neural_release_2026-11-10/prompts/neural-S-M.txt",
+      "sha256": "2538272b37757d3cb8b71ee1e3878f0bd7d53b5263335af3ce331ee36543851b"
+    },
+    {
+      "path": "benchmark/prompts/neural-C-F.txt",
+      "original_path": "b720_neural_release_2026-11-10/prompts/neural-C-F.txt",
+      "sha256": "9078a9523d9047f7eee336846648092779f14582c93417b08077c26bf98d3c51"
+    },
+    {
+      "path": "benchmark/prompts/neural-B-N0.txt",
+      "original_path": "b720_neural_release_2026-11-10/prompts/neural-B-N0.txt",
+      "sha256": "da70f076a9699d32b0f8c67cb7ed26aca15c22d4e5023943b947f766a28d7a75"
+    },
+    {
+      "path": "benchmark/prompts/neural-S-N0.txt",
+      "original_path": "b720_neural_release_2026-11-10/prompts/neural-S-N0.txt",
+      "sha256": "da70f076a9699d32b0f8c67cb7ed26aca15c22d4e5023943b947f766a28d7a75"
+    },
+    {
+      "path": "benchmark/prompts/MANIFEST.json",
+      "original_path": "b720_neural_release_2026-11-10/prompts/MANIFEST.json",
+      "sha256": "98aca2340212f2eb06996eee1710e07ee931ef90966dfee8726a01a26fa5eae7"
+    },
+    {
+      "path": "benchmark/prompts/neural-C-M.txt",
+      "original_path": "b720_neural_release_2026-11-10/prompts/neural-C-M.txt",
+      "sha256": "2538272b37757d3cb8b71ee1e3878f0bd7d53b5263335af3ce331ee36543851b"
+    },
+    {
+      "path": "benchmark/prompts/neural-S-F.txt",
+      "original_path": "b720_neural_release_2026-11-10/prompts/neural-S-F.txt",
+      "sha256": "c2e7e091449961994a92194a6401ff252840678dbc06d4f304e491e03dddbd40"
+    },
+    {
+      "path": "benchmark/prompts/neural-B-M.txt",
+      "original_path": "b720_neural_release_2026-11-10/prompts/neural-B-M.txt",
+      "sha256": "2538272b37757d3cb8b71ee1e3878f0bd7d53b5263335af3ce331ee36543851b"
+    },
+    {
+      "path": "benchmark/prompts/neural-C-N0.txt",
+      "original_path": "b720_neural_release_2026-11-10/prompts/neural-C-N0.txt",
+      "sha256": "da70f076a9699d32b0f8c67cb7ed26aca15c22d4e5023943b947f766a28d7a75"
+    },
+    {
+      "path": "benchmark/scoring/panel.py",
+      "original_path": "b720_neural_release_2026-11-10/panel.py",
+      "sha256": "5ae0aaa9ea05938799b4e6c7321bbf8d181966d371f909711a8637dd9f38e73e"
+    },
+    {
+      "path": "benchmark/scoring/score_panel.py",
+      "original_path": "b720_neural_release_2026-11-10/score_panel.py",
+      "sha256": "3736a79e2c73980a50acc91920a799ce45a1ebeee337762a2cee2b09120df3ad"
+    }
+  ]
+}

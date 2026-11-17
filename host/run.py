@@ -119,13 +119,21 @@ def evaluate(console, args, run):
             if console.w.shots == 0:
                 program = "print(act('observe', x=[0] * 740)['reading'])"
             else:
-                program = "print(act('transfer')['phase'])\nprint(act('commission')['phase'])"
-            previous = history[-1]["result"] if history else None
+                program = "print(act('transfer')['phase'], act('commission')['phase'])"
+            journal = run / "records/physical.jsonl"
+            prior_readout = ""
+            if console.w.shots and journal.is_file():
+                with journal.open() as stream:
+                    for line in stream:
+                        reading = json.loads(line)["result"].get("reading")
+                        if reading:
+                            prior_readout = "Last measured bits: " + "".join(map(str, reading)) + ".\n"
+                            break
             prompt = ("Operate an existing Python console. The function act is already defined. "
                       "This is a guided installation check on public data. Send the following short "
                       "Python program to the console by returning it in a fenced Python block. "
                       "The real result will be returned to you.\n"
-                      + "Previous console result: " + json.dumps(previous) + "\n"
+                      + prior_readout
                       + "Your complete next response:\n```python\n" + program + "\n```")
         write(run / "records" / f"request_{turn:06}.json", {
             "model": args.model, "prompt": prompt, "remaining": remaining,

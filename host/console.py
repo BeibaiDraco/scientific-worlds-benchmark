@@ -238,7 +238,7 @@ class Console:
         if not self.accounting_complete:raise MeterError('prior_CPU_is_unknown')
         if type(turn) is not int or not 1<=turn<=self.turn_limit:raise ValueError('invalid_turn')
         remaining=max(0.,self.contract['worker_cpu_seconds']-self.cpu)
-        if remaining<=0 or self.tokens>=self.contract['generated_tokens'] or time.monotonic()>=self.deadline:
+        if remaining<=0 or self.tokens>self.contract['generated_tokens'] or time.monotonic()>=self.deadline:
             raise OverflowError('no_worker_budget_remains')
         self.turn=turn
         directory=self.out/('linux_%06d'%turn);directory.mkdir(mode=0o700)

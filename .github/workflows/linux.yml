@@ -46,12 +46,15 @@ jobs:
         run: |
           /tmp/sw-python/bin/python host/run.py run runs/example --base-url http://localhost:11434/v1 --model qwen2.5-coder:1.5b --family B --condition M --seed 101 --turns 2 --seconds 600 --reply-tokens 512
           /tmp/sw-python/bin/python host/run.py replay runs/example
+          /tmp/sw-python/bin/python host/run.py exercise runs/integration --base-url http://localhost:11434/v1 --model qwen2.5-coder:1.5b --turns 4 --seconds 420 --reply-tokens 256
+          /tmp/sw-python/bin/python host/run.py replay runs/integration
           docker exec sw-model ollama list
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: public-engineering-receipt
           path: |
+            runs/*/history/*.json
             runs/*/config.json
             runs/*/result.json
             runs/*/records/linux_*/bootstrap.txt

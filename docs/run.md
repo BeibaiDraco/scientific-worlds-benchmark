@@ -33,3 +33,7 @@ A full-budget run here is a self-hosted result. The November 2026 Astra series u
 ## Connecting a different provider
 
 [The adapter](../host/provider.py) makes one request per turn. Translate request and response fields there if your service uses a different schema. Retain returned identity, usage (including provider-counted reasoning tokens), timeout outcomes, and failure evidence. [Ollama API](https://docs.ollama.com/api/openai-compatibility)
+
+## External acceptance
+
+The Linux workflow first runs an ordinary two-turn session. It also runs a separate guided integration check: the model is asked to return code for a paid observation, then for transfer and commissioning with no devices installed. Acceptance requires at least two model-issued worker blocks, three physically replayed actions and the expected failed commissioning. This second run tests transport, isolation, billing and grading. It supplies no scientific model score. The workflow uses a local open-weight model and public seed 101. [Workflow and receipts](https://github.com/BeibaiDraco/scientific-worlds-benchmark/actions/workflows/linux.yml)

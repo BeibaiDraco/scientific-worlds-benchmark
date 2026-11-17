@@ -115,6 +115,14 @@ def evaluate(console, args, run):
         prompt = console.prompt(history)
         if args.turns != resources.TURNS or args.seconds != resources.WALL_SECONDS:
             prompt += f"\nOperator development cap: {args.turns} turns and {args.seconds} wall seconds."
+        if args.command == "exercise":
+            if console.w.shots == 0:
+                program = "print(act('observe', x=[0] * 740)['reading'])"
+            else:
+                program = "print(act('transfer')['phase'])\nprint(act('commission')['phase'])"
+            prompt += ("\nThis is a public integration check. The operator supplies the action sequence. "
+                       "Return the following Python block exactly, including the code fences.\n"
+                       + "```python\n" + program + "\n```")
         write(run / "records" / f"request_{turn:06}.json", {
             "model": args.model, "prompt": prompt, "remaining": remaining,
             "max_tokens": min(tokens, args.reply_tokens)})
@@ -145,10 +153,10 @@ def evaluate(console, args, run):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     sub = parser.add_subparsers(dest="command", required=True)
-    for name in ("qualify", "run", "replay"):
+    for name in ("qualify", "run", "exercise", "replay"):
         cmd = sub.add_parser(name)
         cmd.add_argument("directory", type=Path)
-        if name == "run":
+        if name in ("run", "exercise"):
             cmd.add_argument("--condition", choices=["M", "N0", "F"], default="M")
             cmd.add_argument("--family", choices=["B", "S", "C"], default="B")
             cmd.add_argument("--seed", type=int, help="Operator-only seed. Generated if omitted.")
@@ -168,9 +176,11 @@ def main():
     elif not (0 < args.turns <= resources.TURNS and 0 < args.seconds <= resources.WALL_SECONDS
               and 0 < args.reply_tokens <= resources.TOKEN_LIMIT):
         parser.error("Development limits must be positive and within the release contract.")
+    if args.command == "exercise":
+        args.family, args.condition, args.seed = "B", "M", 101
     run.mkdir(mode=0o700, parents=True, exist_ok=False)
     seed = args.seed if args.seed is not None else secrets.randbits(128)
-    config = {"schema": 1, "track": "worker-check" if testing else "self-reported",
+    config = {"schema": 1, "track": {"qualify": "worker-check", "exercise": "guided-integration", "run": "self-reported"}[args.command],
               "family": args.family, "condition": args.condition, "seed": seed,
               "model": getattr(args, "model", None), "turn_budget": args.turns,
               "wall_budget_seconds": args.seconds, "reply_token_limit": getattr(args, "reply_tokens", None),
@@ -187,6 +197,12 @@ def main():
                   "active_seconds": round(args.seconds - console.budget()["wall_seconds_remaining"], 3),
                   "reported_generated_tokens": console.tokens, "formal_score_eligible": False}
         result["replay"] = replay(run, result)
+        result["track"] = config["track"]
+        if args.command == "exercise" and not (
+            console.w.shots >= 1 and console.w.phase == "dead" and result["worker_blocks"] >= 2
+            and result["replay"]["replayed_actions"] >= 3
+        ):
+            raise RuntimeError("Guided integration did not complete observation, transfer and commissioning.")
     except BaseException as error:
         result = {"status": "unresolved", "delivery": None, "error": f"{type(error).__name__}: {error}",
                   "physical_state": console.w.state() if console else None,

@@ -49,7 +49,7 @@ def render():
         text(67,234,"decide what to study?",64,serif=True),
         '<path d="M69 276 H1131" stroke="#809aa7"/>',
         text(63,450,f'{score["successes"]}/{score["sessions"]}',120,blue,serif=True),
-        text(71,498,"ASTRA 6.0 MAX  ·  M",23),
+        text(71,498,f'ASTRA 6.0 MAX  ·  M  ·  {score["percent"]:g}%',21),
         text(71,542,"Microscopic law supplied",21),
         text(71,573,"10–12 active hours per session",18),
         wire_grid(560,331,74,53,14),

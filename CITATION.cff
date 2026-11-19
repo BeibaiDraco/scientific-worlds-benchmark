@@ -1,6 +1,6 @@
 cff-version: 1.2.0
-message: "Please cite this version when reporting a Scientific Worlds result."
-title: "Scientific Worlds: Discovery and control in a synthetic neural system"
+message: "Please cite this release when reporting a Virtual Brain result."
+title: "The Measure of Worlds: Virtual Brain"
 authors:
   - family-names: Xu
     given-names: Yunlong

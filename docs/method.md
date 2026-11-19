@@ -24,6 +24,12 @@ Three early pilot M and three pilot N0 attempts encountered a code-block extract
 
 The historical winning session spent 3,622 of its 5,200 capital on observations and 1,576 on construction. It reached commissioning with 2 capital. Eight wire relations recovered in an intermediate 32-port model occur in every installed device. The public teaching replay relabels the input addresses consistently across that retired world's response and controllers. It substitutes public targets and random environment streams, carries forward the audited observation spend and runs all 100,000 frames per bank. The script also checks all eight devices' universal certificates and the reused relations. This is an independent check of the submitted design. The historical score comes from the original terminal audit. The released fixture has no sampled formal-world seeds or original deployment streams.
 
+## Two ways a discovery mattered
+
+The illustrated 32-switch design comes from the successful neural repeat. Six copy connections and two inversions drive eight switches in the grid and cancel its total. The other 24 can still follow the environment. [Recovered grid and wiring](../evidence/discovery.json) · [Replay the eight devices](../evidence/replay.py).
+
+The earlier material-worded sessions on the same world illustrate a different decision. The M agent tested a rectangular arrangement by trying candidate rows outside its first eight-switch patch. Later it took 128 readings with 16 known grids neutralized, making the remaining effects easier to distinguish. The N0 agent also found a real object, a 4×6 grid, and identified six connections that cancel its effect. It finished without delivering a device. The session score records whether the entire job was done. These intermediate findings explain some of the research decisions behind the score. [Session outcomes](../evidence/sessions.json).
+
 ## Comparing a new model
 
 The public runner labels user-run results self-reported. For a like-for-like comparison, select the physical worlds and budgets before running either model, keep the same prompts, count fresh starts and continuations consistently, and report technical interruptions separately. Teaching seed 101 and the retired case are public development examples. Use a fresh committed world bank for blind comparisons. Distinguish a new panel rate from Astra's pooled historical row.

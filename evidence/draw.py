@@ -44,9 +44,9 @@ def render():
     ]
     (HERE / "component.svg").write_text(svg(740,292,"The eight wiring rules from the 32-port discovery",figure))
     card = [
-        text(69,69,"SCIENTIFIC WORLDS    /    B720",22,blue),
-        text(67,161,"How does an AI scientist",64,serif=True),
-        text(67,234,"decide what to study?",64,serif=True),
+        text(69,69,"THE MEASURE OF WORLDS    /    v1.0",22,blue),
+        text(67,164,"Virtual Brain",80,serif=True),
+        text(69,233,"How does an AI scientist decide what to study?",36,serif=True),
         '<path d="M69 276 H1131" stroke="#809aa7"/>',
         text(63,450,f'{score["successes"]}/{score["sessions"]}',120,blue,serif=True),
         text(71,498,f'ASTRA 6.0 MAX  ·  M  ·  {score["percent"]:g}%',21),
@@ -56,7 +56,7 @@ def render():
         text(521,561,"32 inputs. Eight wiring rules.",20,blue),
         text(521,590,"Used in all eight working devices.",19,blue)
     ]
-    (HERE / "cover.svg").write_text(svg(1200,630,"Scientific Worlds: Astra M, two deliveries in 25 sessions",card))
+    (HERE / "cover.svg").write_text(svg(1200,630,"The Measure of Worlds v1.0 · Virtual Brain — Astra 6.0 Max delivered in two of 25 M attempts",card))
 
 
 if __name__ == "__main__":

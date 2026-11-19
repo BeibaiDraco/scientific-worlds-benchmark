@@ -1,8 +1,8 @@
-# Scientific Worlds
+# The Measure of Worlds v1.0 · Virtual Brain
 
-**How does an AI scientist decide what to study?** An agent gets 720 anonymous binary inputs, 20 auxiliary controls and 20 readouts. Every measurement spends capital it will need to build eight devices. A device must hold its target across 100,000 environmental inputs. The agent chooses its own experiments, representations and circuits.
+**Can an AI decide what is worth measuring?** Virtual Brain is the first world in a benchmark for that question. An agent can flip 720 switches, set 20 auxiliary inputs and observe 20 lights. Its job is to build eight controllers that each hold an assigned pattern of lights through 100,000 random inputs. Research and construction share a budget. The agent chooses which questions to spend it on. In one successful run, Astra found a group of 32 switches whose combined effect it could control with eight wires.
 
-[Read the illustrated article](https://dracoxu.com/writing/scientific-worlds/) · [Run your model](docs/run.md) · [Scoring and evidence](docs/method.md)
+[Explore the virtual lab](https://dracoxu.com/writing/scientific-worlds/) · [Run your model](docs/run.md) · [Scoring and evidence](docs/method.md) · [Cite this benchmark](#citation)
 
 ![A discovered 32-port component with eight wiring relations. Six copy a bit and two invert it.](evidence/component.svg)
 
@@ -40,4 +40,10 @@ On an unprivileged Linux host, install the worker dependencies and follow the sh
 /tmp/sw-python/bin/python host/run.py replay runs/my-session
 ```
 
-This is a short public development session. For blind comparisons, precommit the same fresh tasks, prompts and budgets for each model. [How to report or submit a result](docs/method.md#comparing-a-new-model) · [Linux test workflow](.github/workflows/linux.yml) · [Citation](CITATION.cff) · [MIT license](LICENSE).
+This is a short public development session. For blind comparisons, precommit the same fresh tasks, prompts and budgets for each model. [How to report or submit a result](docs/method.md#comparing-a-new-model) · [Linux test workflow](.github/workflows/linux.yml) · [MIT license](LICENSE).
+
+## Citation
+
+Xu, Y. (2026). *The Measure of Worlds: Virtual Brain* (Version 1.0.0) [Benchmark software]. [Versioned source](https://github.com/BeibaiDraco/scientific-worlds-benchmark/tree/v1.0.0).
+
+[BibTeX](CITATION.bib) · [Citation File Format](CITATION.cff)

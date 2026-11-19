@@ -38,7 +38,7 @@ def svg(width, height, title, parts):
 
 def render():
     figure = [
-        text(24,31,"32 INPUTS  /  RECOVERED ARRANGEMENT",14),
+        text(24,31,"32 NEURONS  /  RECOVERED MODULE",14),
         wire_grid(76,77,84,49,14),
         text(24,269,"Solid: copy the source bit.   Dashed: invert it.",14),
     ]
@@ -53,7 +53,7 @@ def render():
         text(71,542,"Microscopic law supplied",21),
         text(71,573,"10–12 active hours per session",18),
         wire_grid(560,331,74,53,14),
-        text(521,561,"32 inputs. Eight wiring rules.",20,blue),
+        text(521,561,"32 neurons. Eight connections.",20,blue),
         text(521,590,"Used in all eight working devices.",19,blue)
     ]
     (HERE / "cover.svg").write_text(svg(1200,630,"The Measure of Worlds v1.0 · Virtual Brain — Astra 6.0 Max delivered in two of 25 M attempts",card))

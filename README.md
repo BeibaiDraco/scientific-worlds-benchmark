@@ -1,12 +1,12 @@
 # The Measure of Worlds v1.0 · Virtual Brain
 
-**Can an AI decide what is worth measuring?** Virtual Brain is the first world in a benchmark for that question. An agent can flip 720 switches, set 20 auxiliary inputs and observe 20 lights. Its job is to build eight controllers that each hold an assigned pattern of lights through 100,000 random inputs. Research and construction share a budget. The agent chooses which questions to spend it on. In one successful run, Astra found a group of 32 switches whose combined effect it could control with eight wires.
+**Can an AI decide what is worth measuring?** Virtual Brain is the first world in a benchmark for that question. An agent can stimulate any of 720 binary input neurons, set 20 auxiliary controls and record the activity at 20 readouts. Its job is to build a control circuit for each of eight brains and hold its assigned activity pattern through 100,000 random inputs. Research and construction share a budget. The agent chooses which questions to spend it on. In one successful run, Astra found a module of 32 neurons whose combined effect it could cancel with eight connections.
 
 [Explore the virtual lab](https://dracoxu.com/writing/scientific-worlds/) · [Run your model](docs/run.md) · [Scoring and evidence](docs/method.md) · [Cite this benchmark](#citation)
 
-Finding a law between known variables is one scientific problem. Deciding which quantities deserve to become variables in the first place is another. In the headline M condition the agent learns how four switches can interact. It must choose which larger groups to study and can construct any quantity that helps it act. Our premise is that the ultimate test of an idea is what it lets us change. The simulator awards one point when all eight controllers work under budget. That outcome could also serve as a reward for training agents by reinforcement learning, including agents that find a solution the benchmark authors never anticipated.
+Finding a law between known variables is one scientific problem. Deciding which quantities deserve to become variables in the first place is another. In the headline M condition the agent learns how four neurons can interact. It must choose which larger groups to study and can construct any quantity that helps it act. Our premise is that the ultimate test of an idea is what it lets us change. The simulator awards one point when all eight controllers work under budget. That outcome could also serve as a reward for training agents by reinforcement learning, including agents that find a solution the benchmark authors never anticipated.
 
-![A discovered 32-port component with eight wiring relations. Six copy a bit and two invert it.](evidence/component.svg)
+![A 32-neuron module. Six connections make two neurons share a state and two put partners in opposite states.](evidence/component.svg)
 
 ## Astra 6.0 Max
 

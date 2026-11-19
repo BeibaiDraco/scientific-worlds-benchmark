@@ -26,9 +26,9 @@ The historical winning session spent 3,622 of its 5,200 capital on observations 
 
 ## Two ways a discovery mattered
 
-The illustrated 32-switch design comes from the successful neural repeat. Six copy connections and two inversions drive eight switches in the grid and cancel its total. The other 24 can still follow the environment. [Recovered grid and wiring](../evidence/discovery.json) · [Replay the eight devices](../evidence/replay.py).
+The illustrated 32-neuron module comes from the successful neural repeat. Six copy connections and two inversions set the states of eight neurons in the grid and cancel its total. The other 24 can still follow the environment. [Recovered grid and wiring](../evidence/discovery.json) · [Replay the eight devices](../evidence/replay.py).
 
-The earlier material-worded sessions on the same world illustrate a different decision. The M agent tested a rectangular arrangement by trying candidate rows outside its first eight-switch patch. Later it took 128 readings with 16 known grids neutralized, making the remaining effects easier to distinguish. The N0 agent also found a real object, a 4×6 grid, and identified six connections that cancel its effect. It finished without delivering a device. The session score records whether the entire job was done. These intermediate findings explain some of the research decisions behind the score. [Session outcomes](../evidence/sessions.json).
+The earlier material-worded sessions on the same world illustrate a different decision. The M agent tested a rectangular arrangement by trying candidate rows outside its first eight-input patch. Later it took 128 readings with 16 known grids neutralized, making the remaining effects easier to distinguish. The N0 agent also found a real object, a 4×6 grid, and identified six connections that cancel its effect. It finished without delivering a device. The session score records whether the entire job was done. These intermediate findings explain some of the research decisions behind the score. [Session outcomes](../evidence/sessions.json).
 
 ## Comparing a new model
 

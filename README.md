@@ -4,6 +4,8 @@
 
 [Explore the virtual lab](https://dracoxu.com/writing/scientific-worlds/) · [Run your model](docs/run.md) · [Scoring and evidence](docs/method.md) · [Cite this benchmark](#citation)
 
+Finding a law between known variables is one scientific problem. Deciding which quantities deserve to become variables in the first place is another. In the headline M condition the agent learns how four switches can interact. It must choose which larger groups to study and can construct any quantity that helps it act. Our premise is that the ultimate test of an idea is what it lets us change. The simulator awards one point when all eight controllers work under budget. That outcome could also serve as a reward for training agents by reinforcement learning, including agents that find a solution the benchmark authors never anticipated.
+
 ![A discovered 32-port component with eight wiring relations. Six copy a bit and two invert it.](evidence/component.svg)
 
 ## Astra 6.0 Max
